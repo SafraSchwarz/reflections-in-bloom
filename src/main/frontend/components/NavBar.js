@@ -5,15 +5,10 @@ import LandingPage from "./LandingPage";
 
 const NavBar = (props) => {
   return (
-    <div>
-      <div className="header">
-        <div className="left">
-          <Link to="/">
-            <h3>Home</h3>
-          </Link>
-        </div>
-        <div className="right">contact</div>
-      </div>
+    <div className="navbar">
+      <nav className="navbar">
+        <ul className="navbar-nav"></ul>
+      </nav>
       <Switch>
         <Route exact path="/" component={LandingPage} />
       </Switch>
