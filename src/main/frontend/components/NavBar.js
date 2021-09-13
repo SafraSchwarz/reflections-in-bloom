@@ -9,7 +9,7 @@ const NavBar = (props) => {
     <div className="navbar">
       <nav className="navbar">
         <ul className="navbar-nav">
-          <NavItem icon=":)"></NavItem>
+          <NavItem></NavItem>
         </ul>
       </nav>
       <Switch>
