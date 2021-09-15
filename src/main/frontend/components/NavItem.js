@@ -1,18 +1,28 @@
-import React from "react";
-import { VscDash } from "react-icons/vsc";
+import React, { useState, useEffect } from "react";
+
+import DropdownMenu from "./DropdownMenu";
 
 const NavItem = (props) => {
+  const [openMenu, setOpenMenu] = useState(false);
+
+  let menu;
+
+  if (openMenu) {
+    menu = <DropdownMenu />;
+  } else {
+    menu = <div></div>;
+  }
+
   return (
     <li className="nav-item">
-      <a href="#" className="icon-button">
-        <VscDash />
+      <a
+        href="#"
+        className="icon-button"
+        onClick={() => setOpenMenu(!openMenu)}
+      >
+        {props.icon}
       </a>
-      <a href="#" className="icon-button">
-        <VscDash />
-      </a>
-      <a href="#" className="icon-button">
-        <VscDash />
-      </a>
+      {menu}
     </li>
   );
 };
