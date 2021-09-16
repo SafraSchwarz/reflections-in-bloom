@@ -1,13 +1,20 @@
 import React from "react";
-import { AiFillCaretRight } from "react-icons/ai";
+import { GrContactInfo } from "react-icons/Gr";
+import { BsFillFolderFill } from "react-icons/bs";
 
 import DropdownItem from "./DropdownItem";
 
 const DropdownMenu = (props) => {
   return (
     <div className="dropdown">
-      <DropdownItem leftIcon={<AiFillCaretRight />}>Portfolio</DropdownItem>
-      <DropdownItem leftIcon={<AiFillCaretRight />}>Contact Me</DropdownItem>
+      <DropdownItem
+        leftIcon={<BsFillFolderFill />}
+        iconText="Portfolio"
+      ></DropdownItem>
+      <DropdownItem
+        leftIcon={<GrContactInfo />}
+        iconText="Contact Me"
+      ></DropdownItem>
     </div>
   );
 };

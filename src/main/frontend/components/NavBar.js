@@ -8,6 +8,9 @@ import NavItem from "./NavItem";
 const NavBar = (props) => {
   return (
     <div className="navbar">
+      <a href="/">Home </a>
+      <a href="/">Contact Me </a>
+      <a href="/"> Portfolio</a>
       <nav className="navbar">
         <ul className="navbar-nav">
           <NavItem icon={<AiFillCaretDown />}></NavItem>

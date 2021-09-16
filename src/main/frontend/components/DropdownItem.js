@@ -4,7 +4,7 @@ const DropdownItem = (props) => {
   return (
     <a href="#" className="menu-item">
       <span className="icon-button">{props.leftIcon}</span>
-      <span className="icon-right">{props.rightIcon}</span>
+      {props.iconText}
     </a>
   );
 };
