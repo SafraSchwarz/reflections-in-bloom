@@ -22,12 +22,15 @@ public class FloralProduct {
     @Column(name="type")
     private String type;
 
-    @Column(name="name")
-    private String name;
-
     @Column(name="event")
     private String event;
 
     @Column(name="season")
     private String season;
+
+    @Column(name = "photo_url")
+    private String photoUrl;
+
+    @Column(name = "size")
+    private String size;
 }
