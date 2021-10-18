@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class HomeController {
-  @GetMapping(value = {""})
+  @GetMapping(value = {"/reflections-in-bloom", "/reflections-in-bloom/portfolio"})
   public String forward() {
     return "forward:/";
   }
