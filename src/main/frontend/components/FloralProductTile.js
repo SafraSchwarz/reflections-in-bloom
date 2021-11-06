@@ -1,9 +1,9 @@
 import React from "react";
 
 
-const FloralProductTile = props =>{
+const FloralProductTile = ({id,type,event,season,photoUrl,size}) =>{
     return(
-        <div>SUP I AM A TILE</div>
+        <div><img src={photoUrl}></img></div>
     )
 }
 
