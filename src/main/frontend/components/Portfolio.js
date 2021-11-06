@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import FloralProductTile from "./FloralProductTile";
+
 const Portfolio = (props) => {
   const [floralProducts, setFloralProducts] = useState([]);
 
@@ -19,11 +21,25 @@ const Portfolio = (props) => {
     }
   };
 
+  const listOfFloralProducts = floralProducts.map(product =>{
+    return(
+        <FloralProductTile
+          key = {product.id}
+          id = {product.id}
+          type = {product.type}
+          event = {product.event}
+          season = {product.season}
+          photoUrl = {product.photoUrl}
+          size =  {product.size}
+        ></FloralProductTile>
+    )
+  })
+
   useEffect(() => {
     getFloralProducts();
   }, []);
 
-  return <div>Sup from portfolio</div>;
+  return <div>{listOfFloralProducts}</div>;
 };
 
 export default Portfolio;
