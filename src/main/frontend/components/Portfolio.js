@@ -4,6 +4,9 @@ import FloralProductTile from "./FloralProductTile";
 
 const Portfolio = (props) => {
   const [floralProducts, setFloralProducts] = useState([]);
+  const [selectedRadioBtns, setSelectedRadioBtns] = useState({
+    wedding : false
+  })
 
   const getFloralProducts = async () => {
     try {
@@ -21,6 +24,7 @@ const Portfolio = (props) => {
     }
   };
 
+  //use a filter method to sort through these once the radial buttons are done.
   const listOfFloralProducts = floralProducts.map(product =>{
     return(
         <FloralProductTile
@@ -39,7 +43,23 @@ const Portfolio = (props) => {
     getFloralProducts();
   }, []);
 
-  return <div>{listOfFloralProducts}</div>;
+
+  const handleInputChange = event =>{
+    const target = event.target
+    const name = event.name
+    const value = target.value
+    selectedRadioBtns({
+      ...selectedRadioBtns,
+      [name] : value
+    })
+  }
+
+  // later make a function that creats JSX radio buttons based on the keyvalue pairs of the products fetched.
+  return <div><div>{listOfFloralProducts}</div>
+<label>Wedding</label>
+ <input type="radio" name="wedding" value = "wedding" onChange={handleInputChange} checked={selectedRadioBtns.wedding}>
+ </input>
+  </div>;
 };
 
 export default Portfolio;
