@@ -22,7 +22,7 @@ const Portfolio = (props) => {
     }
   };
 
-  //use a filter method to sort through these once the radial buttons are done.
+  //need to adjust the schema for "event" it is a reserved word... name it evenType or something.
   const listOfFloralProducts = floralProducts
     .filter((val) => {
       if (searchTerm == "") {
