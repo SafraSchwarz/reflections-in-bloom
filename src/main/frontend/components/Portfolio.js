@@ -4,9 +4,7 @@ import FloralProductTile from "./FloralProductTile";
 
 const Portfolio = (props) => {
   const [floralProducts, setFloralProducts] = useState([]);
-  const [selectedRadioBtns, setSelectedRadioBtns] = useState({
-    wedding : false
-  })
+  const [searchTerm, setSearchTerm] = useState("");
 
   const getFloralProducts = async () => {
     try {
@@ -25,41 +23,62 @@ const Portfolio = (props) => {
   };
 
   //use a filter method to sort through these once the radial buttons are done.
-  const listOfFloralProducts = floralProducts.map(product =>{
-    return(
+  const listOfFloralProducts = floralProducts
+    .filter((val) => {
+      if (searchTerm == "") {
+        return val;
+      } else if (val.type.includes(searchTerm)) {
+        return val;
+      } else if (val.event.includes(searchTerm)) {
+        return val;
+      }
+    })
+    .map((product) => {
+      return (
         <FloralProductTile
-          key = {product.id}
-          id = {product.id}
-          type = {product.type}
-          event = {product.event}
-          season = {product.season}
-          photoUrl = {product.photoUrl}
-          size =  {product.size}
+          key={product.id}
+          id={product.id}
+          type={product.type}
+          event={product.event}
+          season={product.season}
+          photoUrl={product.photoUrl}
+          size={product.size}
         ></FloralProductTile>
-    )
-  })
+      );
+    });
 
   useEffect(() => {
     getFloralProducts();
   }, []);
 
-
-  const handleInputChange = event =>{
-    const target = event.target
-    const name = event.name
-    const value = target.value
-    selectedRadioBtns({
-      ...selectedRadioBtns,
-      [name] : value
-    })
-  }
+  const handleInputChange = (event) => {
+    const target = event.target;
+    const name = event.name;
+    const value = target.value;
+    setSearchTerm(value);
+  };
 
   // later make a function that creats JSX radio buttons based on the keyvalue pairs of the products fetched.
-  return <div><div>{listOfFloralProducts}</div>
-<label>Wedding</label>
- <input type="radio" name="wedding" value = "wedding" onChange={handleInputChange} checked={selectedRadioBtns.wedding}>
- </input>
-  </div>;
+  return (
+    <div>
+      <label name="wreath">Wreaths</label>
+      <input
+        type="radio"
+        name="wreath"
+        value="wreath"
+        onChange={handleInputChange}
+      ></input>
+      <label name="wedding">Weddings</label>
+      <input
+        type="radio"
+        name="wedding"
+        value="wedding"
+        onChange={handleInputChange}
+      ></input>
+
+      <div>{listOfFloralProducts}</div>
+    </div>
+  );
 };
 
 export default Portfolio;
