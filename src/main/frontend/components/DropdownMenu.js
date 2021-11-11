@@ -10,10 +10,12 @@ const DropdownMenu = (props) => {
       <DropdownItem
         leftIcon={<BsFillFolderFill />}
         iconText="Portfolio"
+        url="/reflections-in-bloom/portfolio"
       ></DropdownItem>
       <DropdownItem
         leftIcon={<GrContactInfo />}
         iconText="Contact Me"
+        url="/reflections-in-bloom/contact-us"
       ></DropdownItem>
     </div>
   );
