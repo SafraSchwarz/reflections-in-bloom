@@ -29,7 +29,9 @@ const Portfolio = (props) => {
         return val;
       } else if (val.type.includes(searchTerm)) {
         return val;
-      } else if (val.event.includes(searchTerm)) {
+      } else if (val.eventType.includes(searchTerm)) {
+        return val;
+      } else if (val.size.includes(searchTerm)) {
         return val;
       }
     })
@@ -39,7 +41,7 @@ const Portfolio = (props) => {
           key={product.id}
           id={product.id}
           type={product.type}
-          event={product.event}
+          eventType={product.eventType}
           season={product.season}
           photoUrl={product.photoUrl}
           size={product.size}
@@ -49,7 +51,7 @@ const Portfolio = (props) => {
 
   useEffect(() => {
     getFloralProducts();
-  }, []);
+  }, [handleInputChange]);
 
   const handleInputChange = (event) => {
     const target = event.target;
@@ -61,12 +63,21 @@ const Portfolio = (props) => {
   // later make a function that creats JSX radio buttons based on the keyvalue pairs of the products fetched.
   return (
     <div>
+      <label name="all">All</label>
+      <input
+        type="radio"
+        name="all"
+        value=""
+        onChange={handleInputChange}
+        checked={searchTerm == ""}
+      ></input>
       <label name="wreath">Wreaths</label>
       <input
         type="radio"
         name="wreath"
         value="wreath"
         onChange={handleInputChange}
+        checked={searchTerm == "wreath"}
       ></input>
       <label name="wedding">Weddings</label>
       <input
@@ -74,8 +85,32 @@ const Portfolio = (props) => {
         name="wedding"
         value="wedding"
         onChange={handleInputChange}
+        checked={searchTerm == "wedding"}
       ></input>
-
+      <label name="small">Small</label>
+      <input
+        type="radio"
+        name="small"
+        value="small"
+        onChange={handleInputChange}
+        checked={searchTerm == "small"}
+      ></input>
+      <label name="medium">Medium</label>
+      <input
+        type="radio"
+        name="medium"
+        value="medium"
+        onChange={handleInputChange}
+        checked={searchTerm == "medium"}
+      ></input>
+      <label name="Large">Large</label>
+      <input
+        type="radio"
+        name="large"
+        value="large"
+        onChange={handleInputChange}
+        checked={searchTerm == "large"}
+      ></input>
       <div>{listOfFloralProducts}</div>
     </div>
   );

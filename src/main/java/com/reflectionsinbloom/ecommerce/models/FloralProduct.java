@@ -22,8 +22,8 @@ public class FloralProduct {
     @Column(name="type")
     private String type;
 
-    @Column(name="event")
-    private String event;
+    @Column(name="event_type")
+    private String eventType;
 
     @Column(name="season")
     private String season;
