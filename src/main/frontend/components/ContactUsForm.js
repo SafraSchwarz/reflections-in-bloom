@@ -1,27 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 
 const ContactUsForm = (props) => {
+  const [formPayload, setFormPayload] = useState({
+    subject: "",
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleInputChange = (event) => {
+    setFormPayload({
+      ...formPayload,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
+  };
+
   return (
     <div className="contact-us-form">
-      <form>
+      <form onSubmit={}>
         <div className="form-input">
           <label htmlFor="subject">Subject</label>
-          <input type="text" name="subject" />
+          <input onChange={handleInputChange} type="text" name="subject" />
         </div>
 
         <div className="form-input">
           <label htmlFor="name">Name</label>
-          <input type="text" name="user_name" />
+          <input onChange={handleInputChange} type="text" name="user_name" />
         </div>
 
         <div className="form-input">
           <label htmlFor="email">Email</label>
-          <input type="email" name="user_email" />
+          <input onChange={handleInputChange} type="email" name="user_email" />
         </div>
 
         <div className="form-input">
           <label htmlFor="message">Message</label>
-          <textarea name="message" />
+          <textarea onChange={handleInputChange} name="message" />
         </div>
 
         <input className="button" type="submit" value="Send" />
