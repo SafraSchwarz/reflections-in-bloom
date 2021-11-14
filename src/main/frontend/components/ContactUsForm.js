@@ -3,8 +3,8 @@ import React, { useState } from "react";
 const ContactUsForm = (props) => {
   const [formPayload, setFormPayload] = useState({
     subject: "",
-    name: "",
-    email: "",
+    user_name: "",
+    user_email: "",
     message: "",
   });
 
@@ -17,7 +17,7 @@ const ContactUsForm = (props) => {
 
   return (
     <div className="contact-us-form">
-      <form onSubmit={}>
+      <form>
         <div className="form-input">
           <label htmlFor="subject">Subject</label>
           <input onChange={handleInputChange} type="text" name="subject" />
